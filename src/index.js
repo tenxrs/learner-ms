@@ -8,6 +8,9 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+import Dashboard from './learnerDashboard';
+import ReportCard from './ReportCard';
+import Table from './Timetable';
 
 
 const router = createBrowserRouter([
@@ -23,6 +26,18 @@ const router = createBrowserRouter([
     path: "/tracker",
     element: <Tracker />,
   },
+  {
+    path: '/dashboard',
+    element: <Dashboard />
+  },
+  {
+    path: '/results',
+    element: <ReportCard />
+  },
+  {
+    path: '/timetable',
+    element: <Table />
+  }
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
