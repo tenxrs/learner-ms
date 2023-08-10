@@ -10,13 +10,14 @@ import {
 } from "react-router-dom";
 import Dashboard from './learnerDashboard';
 import ReportCard from './ReportCard';
+import App from './App';
 import Table from './Timetable';
 
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <div>Hello world!</div>,
+    element: <App />,
   },
   {
     path: "/activities",
