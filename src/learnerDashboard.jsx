@@ -1,14 +1,40 @@
 import { apsTotal } from './ReportCard';
+import { useLocation } from 'react-router';
 
 export default function Dashboard() {
+  const location = useLocation();
+  const data = location.state;
+
+  const sombre = data.map(test => {
+    return test.tests[0].markObtained;
+  });
+  const totalTestmarks = sombre.reduce((acc, val) => acc + val, 0);
+  const assignmentsTotal = data.map(assignment => {
+    return assignment.assignments[0].markObtained;
+  });
+  const exams = data.map(exam => exam.examinations[0].markObtained);
+  const examtotal = exams.reduce((acc, val) => acc + val, 0);
+  const ttalAssesmnt = assignmentsTotal.reduce((acc, val) => acc + val, 0);
+
+  const classAvg = parseInt(
+    totalTestmarks + ttalAssesmnt + examtotal / 15 + '%'
+  );
+
   return (
     <>
+      {data.map((sub, index) => {
+        return <div key={index}>{sub.name}</div>;
+      })}
+
       <div className="font-poppins flex">
         <div className="flex flex-col">
           <div className="flex gap-2">
-            <LearnerStatCard value={90} statType={'Average Grade'} />
+            <LearnerStatCard
+              value={data[0].tests[0].markObtained}
+              statType={'Average Grade'}
+            />
             <LearnerStatCard value={apsTotal} statType={'APS'} />
-            <LearnerStatCard value={82} statType={'Class Average'} />
+            <LearnerStatCard value={classAvg} statType={'Class Average'} />
           </div>
         </div>
       </div>
