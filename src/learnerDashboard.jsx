@@ -5,7 +5,7 @@ import StudentLeaderboard from './StudentLeaderboard';
 export default function Dashboard() {
   const location = useLocation();
   const data = location.state;
-  console.log(data);
+
   const sombre = data.map(test => {
     return test.tests[0].markObtained;
   });
@@ -23,10 +23,6 @@ export default function Dashboard() {
 
   return (
     <>
-      {data.map((sub, index) => {
-        return <div key={index}>{sub.name}</div>;
-      })}
-
       <div className="font-poppins flex">
         <div className="flex flex-col">
           <div className="flex gap-2">
@@ -39,7 +35,13 @@ export default function Dashboard() {
           </div>
         </div>
       </div>
-      <StudentLeaderboard />
+      <StudentLeaderboard
+        Subjects={data.map((sub, index) => (
+          <optgroup>
+            <option>{sub.name}</option>
+          </optgroup>
+        ))}
+      />
     </>
   );
 }

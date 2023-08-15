@@ -1,7 +1,7 @@
 import { useLocation } from 'react-router';
 import { classes } from './data.mjs';
 
-const StudentLeaderboard = () => {
+const StudentLeaderboard = props => {
   const location = useLocation();
   const trymoreWay = () => {
     const data = location.state;
@@ -27,8 +27,8 @@ const StudentLeaderboard = () => {
                 onClick={trymoreWay}
                 className="ml-2 rounded-full"
                 src={student.photo}
-                width={50}
-                height={50}
+                width={40}
+                height={40}
                 alt=""
               />
             </td>
@@ -49,15 +49,7 @@ const StudentLeaderboard = () => {
           <option value="">Grade 11</option>
           <option value="">Grade 12</option>
         </select>
-        <select>
-          <option value="Subjects"></option>
-          <option value="">Mathematics</option>
-          <option value="">Life-orientation</option>
-          <option value="">English</option>
-          <option value="">Accounting</option>
-          <option value="">Economics</option>
-          <option value="">Business Studies</option>
-        </select>
+        <select>{props.Subjects}</select>
       </label>
       <table className="w-1/2 mt-10">
         <thead>
