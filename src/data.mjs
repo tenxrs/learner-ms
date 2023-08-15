@@ -15,7 +15,7 @@ export const classes = [
         grade: "11A",
         learners: [
             {
-                name: faker.person.firstName(),
+                name: 'ryan',
                 photo: faker.internet.avatar(),
                 surname: faker.person.lastName(),
                 gender: faker.person.sex(),

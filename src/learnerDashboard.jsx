@@ -1,10 +1,11 @@
 import { apsTotal } from './ReportCard';
 import { useLocation } from 'react-router';
+import StudentLeaderboard from './StudentLeaderboard';
 
 export default function Dashboard() {
   const location = useLocation();
   const data = location.state;
-
+  console.log(data);
   const sombre = data.map(test => {
     return test.tests[0].markObtained;
   });
@@ -38,6 +39,7 @@ export default function Dashboard() {
           </div>
         </div>
       </div>
+      <StudentLeaderboard />
     </>
   );
 }
