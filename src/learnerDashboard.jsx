@@ -22,17 +22,34 @@ export default function Dashboard() {
     totalTestmarks + ttalAssesmnt + examtotal / 15 + '%'
   );
 
+  const cardStyles = [{
+    backgroundColor : '#9d3ebc',
+    width : '250px'
+  },
+{
+  backgroundColor: '#f8a72e',
+  width : '250px'
+},
+{
+  backgroundColor : '#514597',
+  width : '350px'
+}]
+  
+const firstCard = cardStyles[0];
+const secondCard = cardStyles[1];
+const thirdCard = cardStyles[2];
   return (
     <>
-      <div className="font-poppins flex">
+      <div className="font-poppins flex m-5">
         <div className="flex flex-col">
           <div className="flex gap-2">
             <LearnerStatCard
               value={data[0].tests[0].markObtained}
               statType={'Average Grade'}
+              customStyles={firstCard}
             />
-            <LearnerStatCard value={apsTotal} statType={'APS'} />
-            <LearnerStatCard value={classAvg} statType={'Class Average'} />
+            <LearnerStatCard value={apsTotal} statType={'APS'} customStyles={secondCard} />
+            <LearnerStatCard value={classAvg} statType={'Class Average'} customStyles={thirdCard} />
           </div>
         </div>
       </div>
@@ -48,18 +65,20 @@ export default function Dashboard() {
   );
 }
 
-const LearnerStatCard = ({ value, statType }) => {
+const LearnerStatCard = ({ value, statType ,customStyles }) => {
   return (
     <div
+    style={customStyles}
       className="
             rounded-lg
-            h-60 p-8
+            h-40 p-8
             flex flex-col-reverse items-center justify-around text-center
             bg-blue-300 
             shadow-lg hover:shadow-indigo-400 hover:shadown-inner transition-all ease-in-out duration-150
-            w-60 
+            w-40 
             mx-auto
             py-8
+            text-white
             "
     >
       <h2 className="font-poppins text-lg">{statType}</h2>

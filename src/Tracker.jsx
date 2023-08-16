@@ -54,7 +54,9 @@ export const data = {
 export function Tracker() {
   return (
     <>
-      <Bar options={options} data={data} />
+    <div className=' h-96 m-5'>
+    <Bar options={options} data={data} />
+    </div>
     </>
   );
 }
