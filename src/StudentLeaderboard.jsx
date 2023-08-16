@@ -30,7 +30,7 @@ const StudentLeaderboard = props => {
                 width={40}
                 height={40}
                 alt=""
-              />
+              /> 
             </td>
             <td>{student.name}</td>
           </tr>
