@@ -8,7 +8,7 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import Dashboard from './LearnerDashboard';
+import Dashboard from './learnerDashboard';
 import ReportCard from './ReportCard';
 import App from './App';
 import Table from './Timetable';
