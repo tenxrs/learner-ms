@@ -12,6 +12,7 @@ import Dashboard from './learnerDashboard';
 import ReportCard from './ReportCard';
 import App from './App';
 import Table from './Timetable';
+import StudentLeaderboard from './StudentLeaderboard';
 
 
 const router = createBrowserRouter([
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
   {
     path: '/timetable',
     element: <Table />
+  },
+  {
+    path: '/leaderboard',
+    element: <StudentLeaderboard />
   }
 ]);
 
