@@ -1,6 +1,7 @@
 import { apsTotal } from './ReportCard';
 import { useLocation } from 'react-router';
 import StudentLeaderboard from './StudentLeaderboard';
+import { Tracker } from './Tracker';
 
 export default function Dashboard() {
   const location = useLocation();
@@ -35,6 +36,7 @@ export default function Dashboard() {
           </div>
         </div>
       </div>
+      <Tracker />
       <StudentLeaderboard
         Subjects={data.map((sub, index) => (
           <optgroup>
@@ -53,7 +55,7 @@ const LearnerStatCard = ({ value, statType }) => {
             rounded-lg
             h-60 p-8
             flex flex-col-reverse items-center justify-around text-center
-            bg-white-300 
+            bg-blue-300 
             shadow-lg hover:shadow-indigo-400 hover:shadown-inner transition-all ease-in-out duration-150
             w-60 
             mx-auto
