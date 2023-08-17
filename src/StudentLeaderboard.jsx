@@ -1,11 +1,11 @@
-import { useLocation } from "react-router";
-import { classes } from "./data.mjs";
+import { useLocation } from 'react-router';
+import { classes } from './data.mjs';
 
-const StudentLeaderboard = (props) => {
+const StudentLeaderboard = props => {
   const location = useLocation();
   const trymoreWay = () => {
     const data = location.state;
-    data.map((names) => console.log(names));
+    data.map(names => console.log(names));
   };
 
   const studentsHandler = () => {
@@ -43,26 +43,34 @@ const StudentLeaderboard = (props) => {
 
   return (
     <>
-      <label className="flex w-4/4 space-x-80 mt-10  m-5">
-        <h4 className="block text-white">student Leader board</h4>
-        <select className="bg-transparent text-white outline-none">
-          <option value="">Grade 11</option>
-          <option value="">Grade 12</option>
-        </select>
-        <select className="bg-transparent text-white outline-none">{props.Subjects}</select>
-      </label>
-      <div className=" bg-slate-800 rounded-lg py-10 m-5 w-3/4 ">
-      <table className="w-full">
-        <thead>
-          <tr>
-            <th className="w-10 px-10 text-white ">Ranking</th>
-            <th className="justify-start text-left text-white ">Students</th>
-            <th className="justify-start text-left text-white ">Examination</th>
-            <th className="justify-start text-left text-white ">Results</th>
-          </tr>
-        </thead>
-        <tbody className="text-white">{studentsHandler()}</tbody>
-      </table>
+      <div className="w-full">
+        <label className="flex  space-x-56 mt-10  justify-center m-5">
+          <h4 className="block text-white w-40">student Leader board</h4>
+          <select className="bg-transparent text-white outline-none w-fit">
+            <option value="">Grade 11</option>
+            <option value="">Grade 12</option>
+          </select>
+          <select className="bg-transparent text-white outline-none w-max">
+            {props.Subjects}
+          </select>
+        </label>
+        <div className=" bg-[#23233F] rounded-lg py-10 m-5 w-full ">
+          <table className="w-full">
+            <thead>
+              <tr>
+                <th className="w-10 px-10 text-white ">Ranking</th>
+                <th className="justify-start text-left text-white ">
+                  Students
+                </th>
+                <th className="justify-start text-left text-white ">
+                  Examination
+                </th>
+                <th className="justify-start text-left text-white ">Results</th>
+              </tr>
+            </thead>
+            <tbody className="text-white">{studentsHandler()}</tbody>
+          </table>
+        </div>
       </div>
     </>
   );

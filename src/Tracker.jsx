@@ -41,12 +41,13 @@ export const data = {
     {
       label: 'Attendance',
       data: labels.map(() => fakerZU_ZA.datatype.number({ min: 0, max: 100 })),
-      backgroundColor: 'rgba(255, 99, 132, 0.5)'
+      backgroundColor: '#9d3ebc'
     },
     {
       label: 'Grades Average',
       data: labels.map(() => fakerZU_ZA.datatype.number({ min: 0, max: 100 })),
-      backgroundColor: 'rgba(53, 162, 235, 0.5)'
+      backgroundColor: '#514597',
+      'border-radius': '12px'
     }
   ]
 };
@@ -54,9 +55,9 @@ export const data = {
 export function Tracker() {
   return (
     <>
-    <div className=' h-96 m-5'>
-    <Bar options={options} data={data} />
-    </div>
+      <div className=" h-96 m-5">
+        <Bar options={options} data={data} />
+      </div>
     </>
   );
 }

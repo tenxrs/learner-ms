@@ -2,6 +2,7 @@ import { apsTotal } from './ReportCard';
 import { useLocation } from 'react-router';
 import StudentLeaderboard from './StudentLeaderboard';
 import { Tracker } from './Tracker';
+import MyApp from './Calender';
 
 export default function Dashboard() {
   const location = useLocation();
@@ -22,53 +23,72 @@ export default function Dashboard() {
     totalTestmarks + ttalAssesmnt + examtotal / 15 + '%'
   );
 
-  const cardStyles = [{
-    backgroundColor : '#9d3ebc',
-    width : '250px'
-  },
-{
-  backgroundColor: '#f8a72e',
-  width : '250px'
-},
-{
-  backgroundColor : '#514597',
-  width : '350px'
-}]
-  
-const firstCard = cardStyles[0];
-const secondCard = cardStyles[1];
-const thirdCard = cardStyles[2];
+  const cardStyles = [
+    {
+      backgroundColor: '#9d3ebc',
+      width: '250px'
+    },
+    {
+      backgroundColor: '#f8a72e',
+      width: '250px'
+    },
+    {
+      backgroundColor: '#514597',
+      width: '350px'
+    }
+  ];
+
+  const firstCard = cardStyles[0];
+  const secondCard = cardStyles[1];
+  const thirdCard = cardStyles[2];
   return (
     <>
-      <div className="font-poppins flex m-5">
-        <div className="flex flex-col">
-          <div className="flex gap-2">
-            <LearnerStatCard
-              value={data[0].tests[0].markObtained}
-              statType={'Average Grade'}
-              customStyles={firstCard}
+      <div className="flex">
+        <div className="font-poppins flex-col m-5 w-3/4">
+          <div>
+            <div className="flex m-0">
+              <LearnerStatCard
+                value={data[0].tests[0].markObtained}
+                statType={'Average Grade'}
+                customStyles={firstCard}
+              />
+              <LearnerStatCard
+                value={apsTotal}
+                statType={'APS'}
+                customStyles={secondCard}
+              />
+              <LearnerStatCard
+                value={classAvg}
+                statType={'Class Average'}
+                customStyles={thirdCard}
+              />
+            </div>
+          </div>
+          <div>
+            <Tracker />
+            <StudentLeaderboard
+              Subjects={data.map((sub, index) => (
+                <optgroup>
+                  <option>{sub.name}</option>
+                </optgroup>
+              ))}
             />
-            <LearnerStatCard value={apsTotal} statType={'APS'} customStyles={secondCard} />
-            <LearnerStatCard value={classAvg} statType={'Class Average'} customStyles={thirdCard} />
+          </div>
+        </div>
+        <div className="flex ">
+          <div>
+            <MyApp />
           </div>
         </div>
       </div>
-      <Tracker />
-      <StudentLeaderboard
-        Subjects={data.map((sub, index) => (
-          <optgroup>
-            <option>{sub.name}</option>
-          </optgroup>
-        ))}
-      />
     </>
   );
 }
 
-const LearnerStatCard = ({ value, statType ,customStyles }) => {
+const LearnerStatCard = ({ value, statType, customStyles }) => {
   return (
     <div
-    style={customStyles}
+      style={customStyles}
       className="
             rounded-lg
             h-40 p-8
@@ -76,7 +96,7 @@ const LearnerStatCard = ({ value, statType ,customStyles }) => {
             bg-blue-300 
             shadow-lg hover:shadow-indigo-400 hover:shadown-inner transition-all ease-in-out duration-150
             w-40 
-            mx-auto
+            mx-2
             py-8
             text-white
             "
@@ -118,6 +138,7 @@ const LearnerStatCard = ({ value, statType ,customStyles }) => {
               strokeLinejoin="round"
               d="M12 4.5v15m0 0l6.75-6.75M12 19.5l-6.75-6.75"
             />
+            inpu
           </svg>
           <p className="text-5xl font-extrabold font-mono">{`${value}`}</p>
         </div>
