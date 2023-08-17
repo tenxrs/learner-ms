@@ -3,6 +3,7 @@ import { useLocation } from 'react-router';
 import StudentLeaderboard from './StudentLeaderboard';
 import { Tracker } from './Tracker';
 import MyApp from './Calender';
+import MeetingScheduler from './MeetingScheduler';
 
 export default function Dashboard() {
   const location = useLocation();
@@ -75,8 +76,9 @@ export default function Dashboard() {
             />
           </div>
         </div>
-        <div className="flex ">
+        <div className="mx-10">
           <div>
+            <MeetingScheduler />
             <MyApp />
           </div>
         </div>
@@ -97,6 +99,7 @@ const LearnerStatCard = ({ value, statType, customStyles }) => {
             shadow-lg hover:shadow-indigo-400 hover:shadown-inner transition-all ease-in-out duration-150
             w-40 
             mx-2
+            mt-5
             py-8
             text-white
             "

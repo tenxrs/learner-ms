@@ -44,7 +44,7 @@ const StudentLeaderboard = props => {
   return (
     <>
       <div className="w-full">
-        <label className="flex  space-x-56 mt-10  justify-center m-5">
+        <label className="flex  space-x-60 mt-10  justify-center m-5">
           <h4 className="block text-white w-40">student Leader board</h4>
           <select className="bg-transparent text-white outline-none w-fit">
             <option value="">Grade 11</option>
