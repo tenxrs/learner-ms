@@ -13,26 +13,30 @@ const StudentLeaderboard = props => {
 
     return learners.map((student, index) => {
       return (
-        <Link key={student.id} to={`/dash/ ${student.name}`} state={student}>
-          <tr className="cursor-pointer">
-            <td className="text-center">{index + 1}</td>
-            <tr className="">
-              <td>
-                <img
-                  className="ml-2 rounded-full  my-2"
-                  src={student.photo}
-                  width={25}
-                  height={25}
-                  alt=""
-                />
-              </td>
+        <tr className="cursor-pointer">
+          <td className="text-center">{index + 1}</td>
+          <tr className="">
+            <td>
+              <img
+                className="ml-2 rounded-full  my-2"
+                src={student.photo}
+                width={25}
+                height={25}
+                alt=""
+              />
+            </td>
+            <Link
+              key={student.id}
+              to={`/dash/ ${student.name}`}
+              state={student}
+            >
               <td>{student.name}</td>
-            </tr>
-
-            <td>{student.subjects[0].examinations[0].name}</td>
-            <td>{student.subjects[0].examinations[0].markObtained}</td>
+            </Link>
           </tr>
-        </Link>
+
+          <td>{student.subjects[0].examinations[0].name}</td>
+          <td>{student.subjects[0].examinations[0].markObtained}</td>
+        </tr>
       );
     });
   };
@@ -64,7 +68,8 @@ const StudentLeaderboard = props => {
                 <th className="justify-start text-left text-white ">Results</th>
               </tr>
             </thead>
-            <tbody className="text-white">{studentsHandler()}</tbody>
+
+            <tbody className="text-white ">{studentsHandler()}</tbody>
           </table>
         </div>
       </div>

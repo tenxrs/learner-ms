@@ -1,14 +1,13 @@
-import { classes } from './data.mjs';
 import { UniversityCourses } from './Courses.mjs';
-
 import { Tracker } from './Tracker';
 import Calendar from 'react-calendar';
 import Card from './Card';
 import { useLocation } from 'react-router';
+import { Link } from 'react-router-dom';
 
-const StudentDashboard = props => {
+const StudentDashboard = () => {
   const state = useLocation();
-  console.log(state.state.aps);
+
   return (
     <>
       <div className="flex">
@@ -24,12 +23,24 @@ const StudentDashboard = props => {
           {UniversityCourses.map(course => {
             return state.state.aps >=
               course.entryRequirements[0].minRequiredAps ? (
-              <div>
+              <div className="">
                 <Card>
                   <h1 className="text-white text-lg cursor-pointer ">
                     {course.course}
                   </h1>
                 </Card>
+                <div>
+                  <button className=" bg-[#9d3ebc] m-1 h-auto text-white justify-center rounded p-0.5 ">
+                    Apply
+                  </button>
+                  <Link
+                    to={`/courses/:${course.course}:${state.state.name}`}
+                    state={course}
+                    className=" bg-white m-1 h-auto  justify-center rounded p-0.5"
+                  >
+                    Course info
+                  </Link>
+                </div>
               </div>
             ) : (
               ''
@@ -43,7 +54,9 @@ const StudentDashboard = props => {
           </label>
           <Tracker />
         </div>
-        <Calendar />
+        <div>
+          <Calendar />
+        </div>
       </div>
     </>
   );

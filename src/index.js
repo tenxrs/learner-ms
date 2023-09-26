@@ -14,6 +14,7 @@ import App from './App';
 import Table from './Timetable';
 import StudentLeaderboard from './StudentLeaderboard';
 import StudentDashboard from './studentDashboard';
+import CourseInfo from './CoursesInfo';
 
 
 
@@ -50,6 +51,10 @@ const router = createBrowserRouter([
   {
     path: '/dash/:id',
     element: <StudentDashboard />
+  },
+  {
+    path: '/courses/:id',
+    element: <CourseInfo />
   }
 ]);
 
