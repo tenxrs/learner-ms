@@ -68,7 +68,7 @@ export default function Dashboard() {
           <div>
             <Tracker />
             <StudentLeaderboard
-              Subjects={data.map((sub, index) => (
+              Subjects={data.map(sub => (
                 <optgroup>
                   <option>{sub.name}</option>
                 </optgroup>

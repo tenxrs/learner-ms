@@ -13,6 +13,7 @@ import ReportCard from './ReportCard';
 import App from './App';
 import Table from './Timetable';
 import StudentLeaderboard from './StudentLeaderboard';
+import StudentDashboard from './studentDashboard';
 
 
 
@@ -44,6 +45,11 @@ const router = createBrowserRouter([
   {
     path: '/leaderboard',
     element: <StudentLeaderboard />
+  },
+
+  {
+    path: '/dash/:id',
+    element: <StudentDashboard />
   }
 ]);
 

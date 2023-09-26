@@ -13,6 +13,7 @@ const Learner = ({
 }) => {
   const navigate = useNavigate();
   const data = learnerSubjects;
+
   const datatransferHandler = () => {
     navigate('/dashboard', { state: learnerSubjects });
   };

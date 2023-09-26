@@ -1,13 +1,7 @@
-import { useLocation } from 'react-router';
 import { classes } from './data.mjs';
+import { Link } from 'react-router-dom';
 
 const StudentLeaderboard = props => {
-  const location = useLocation();
-  const trymoreWay = () => {
-    const data = location.state;
-    data.map(names => console.log(names));
-  };
-
   const studentsHandler = () => {
     let learners = classes[0].learners;
 
@@ -19,24 +13,26 @@ const StudentLeaderboard = props => {
 
     return learners.map((student, index) => {
       return (
-        <tr key={index}>
-          <td className="text-center">{index}</td>
-          <tr className="">
-            <td>
-              <img
-                className="ml-2 rounded-full  my-2"
-                src={student.photo}
-                width={25}
-                height={25}
-                alt=""
-              />
-            </td>
-            <td>{student.name}</td>
-          </tr>
+        <Link key={student.id} to={`/dash/ ${student.name}`} state={student}>
+          <tr className="cursor-pointer">
+            <td className="text-center">{index + 1}</td>
+            <tr className="">
+              <td>
+                <img
+                  className="ml-2 rounded-full  my-2"
+                  src={student.photo}
+                  width={25}
+                  height={25}
+                  alt=""
+                />
+              </td>
+              <td>{student.name}</td>
+            </tr>
 
-          <td>{student.subjects[0].examinations[0].name}</td>
-          <td>{student.subjects[0].examinations[0].markObtained}</td>
-        </tr>
+            <td>{student.subjects[0].examinations[0].name}</td>
+            <td>{student.subjects[0].examinations[0].markObtained}</td>
+          </tr>
+        </Link>
       );
     });
   };

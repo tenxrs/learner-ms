@@ -15,11 +15,13 @@ export const classes = [
         grade: "11A",
         learners: [
             {
-                name: 'ryan',
+                name: faker.person.firstName(),
                 photo: faker.internet.avatar(),
                 surname: faker.person.lastName(),
                 gender: faker.person.sex(),
                 age: faker.number.int({ min: 16, max: 18 }),
+                aps: 50,
+                id: 1,
                 subjects: [
                     {
                         name: "Mathematics",
@@ -29,7 +31,8 @@ export const classes = [
                                 totalMark: 70,
                                 markObtained: faker.number.int({ min: 0, max: 70 }),
                                 markPercentage: Math.ceil((faker.number.int({ min: 1, max: 100 }) / faker.number.int({ min: 1, max: 100 }))),
-                                term: 1
+                                term: 1,
+
                             }
                         ],
                         tests: [
@@ -295,6 +298,8 @@ export const classes = [
                 surname: faker.person.lastName(),
                 gender: faker.person.sex(),
                 age: faker.number.int({ min: 16, max: 18 }),
+                aps: faker.number.int({ min: 7, max: 49 }),
+                id: 2,
                 subjects: [
                     {
                         name: "Accounting",
@@ -564,6 +569,8 @@ export const classes = [
                 surname: faker.person.lastName(),
                 gender: faker.person.sex(),
                 age: faker.number.int({ min: 16, max: 18 }),
+                aps: faker.number.int({ min: 7, max: 49 }),
+                id: 3,
                 subjects: [
                     {
                         name: "Mathematics",
@@ -833,6 +840,8 @@ export const classes = [
                 surname: faker.person.lastName(),
                 gender: faker.person.sex(),
                 age: faker.number.int({ min: 16, max: 18 }),
+                aps: faker.number.int({ min: 7, max: 49 }),
+                id: 4,
                 subjects: [
                     {
                         name: "Mathematics",
@@ -1102,6 +1111,8 @@ export const classes = [
                 surname: faker.person.lastName(),
                 gender: faker.person.sex(),
                 age: faker.number.int({ min: 16, max: 18 }),
+                aps: faker.number.int({ min: 7, max: 49 }),
+                id: 5,
                 subjects: [
                     {
                         name: "Mathematics",
@@ -1371,6 +1382,8 @@ export const classes = [
                 surname: faker.person.lastName(),
                 gender: faker.person.sex(),
                 age: faker.number.int({ min: 16, max: 18 }),
+                aps: faker.number.int({ min: 7, max: 49 }),
+                id: 6,
                 subjects: [
                     {
                         name: "Mathematics",

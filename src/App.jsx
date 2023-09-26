@@ -3,10 +3,11 @@ import Learner from './Learner';
 
 const App = () => {
   const learners = classes[0].learners;
-  return learners.map((learner, index) => {
+  return learners.map(learner => {
     return (
       <Learner
-        key={index}
+        key={learner.id}
+        aps={learner.aps}
         name={learner.name}
         surname={learner.surname}
         age={learner.age}

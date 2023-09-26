@@ -1,4 +1,4 @@
-import React from 'react';
+import { classes } from './data.mjs';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -9,8 +9,6 @@ import {
   Legend
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
-import { fakerZU_ZA } from '@faker-js/faker';
-
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -19,7 +17,6 @@ ChartJS.register(
   Tooltip,
   Legend
 );
-
 export const options = {
   responsive: true,
   plugins: {
@@ -32,31 +29,34 @@ export const options = {
     }
   }
 };
-
-const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
-
 export const data = {
-  labels,
   datasets: [
     {
-      label: 'Attendance',
-      data: labels.map(() => fakerZU_ZA.datatype.number({ min: 0, max: 100 })),
+      label: 'examinations',
+      data: classes.map(marks =>
+        console.log(
+          marks[0].learners[0].subjects[0].examinations[0].markObtained
+        )
+      ),
       backgroundColor: '#9d3ebc'
-    },
-    {
-      label: 'Grades Average',
-      data: labels.map(() => fakerZU_ZA.datatype.number({ min: 0, max: 100 })),
-      backgroundColor: '#514597'
     }
+    // {
+    //   label: 'Grades Average',
+    //   data: classes.map(
+    //     assignment =>
+    //     //   assignment[0].learners[0].subjects[0].assigments[0].markObtained
+    //   ),
+    //   backgroundColor: '#514597'
+    // }
   ]
 };
 
-export function Tracker() {
+const StudentProgress = () => {
   return (
     <>
-      <div className=" h-96 m-5">
-        <Bar options={options} data={data} />
-      </div>
+      <Bar options={options} data={data} />
     </>
   );
-}
+};
+
+export default StudentProgress;
