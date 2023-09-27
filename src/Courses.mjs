@@ -4,6 +4,7 @@ export const UniversityCourses = [
     course: 'Bsc Biological science',
     description:
       'Biology involves the study of living organisms, from understanding genes to managing ecosystems. This includes the biochemistry of molecules, such as DNA, RNA, and proteins; the physiological functions of cells, tissues, organs, and organ systems; the influence of evolutionary relationships on biological problems; and aquatic and terrestrial ecology.',
+    https: 'https://www.wits.ac.za/display/?keywords=science&courseType=Undergraduate',
     courseDuration: '3years',
     entryRequirements: [
       {

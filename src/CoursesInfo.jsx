@@ -1,4 +1,5 @@
 import { useLocation } from 'react-router';
+
 const CourseInfo = () => {
   const state = useLocation();
   console.log(state.state.entryRequirements);

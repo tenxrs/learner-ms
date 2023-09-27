@@ -4,7 +4,7 @@ import StudentLeaderboard from './StudentLeaderboard';
 import { Tracker } from './Tracker';
 import MyApp from './Calender';
 import MeetingScheduler from './MeetingScheduler';
-
+import Lines from './Lines';
 export default function Dashboard() {
   const location = useLocation();
   console.log(location);
@@ -66,7 +66,7 @@ export default function Dashboard() {
             </div>
           </div>
           <div>
-            <Tracker />
+            <Tracker className="h-96" />
             <StudentLeaderboard
               Subjects={location.state.map(sub => (
                 <optgroup>
@@ -80,6 +80,8 @@ export default function Dashboard() {
           <div>
             <MeetingScheduler />
             <MyApp />
+            <h2 className="text-white">Parents meeting attendance tracker:</h2>
+            <Lines />
           </div>
         </div>
       </div>

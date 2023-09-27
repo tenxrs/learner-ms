@@ -6,7 +6,8 @@ import {
   BarElement,
   Title,
   Tooltip,
-  Legend
+  Legend,
+  ArcElement
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
 import { fakerZU_ZA } from '@faker-js/faker';
@@ -17,7 +18,8 @@ ChartJS.register(
   BarElement,
   Title,
   Tooltip,
-  Legend
+  Legend,
+  ArcElement
 );
 
 export const options = {
@@ -51,10 +53,10 @@ export const data = {
   ]
 };
 
-export function Tracker() {
+export function Tracker(props) {
   return (
     <>
-      <div className=" h-96 m-5">
+      <div className={props.className}>
         <Bar options={options} data={data} />
       </div>
     </>
