@@ -13,7 +13,7 @@ const StudentLeaderboard = props => {
 
     return learners.map((student, index) => {
       return (
-        <tr className="cursor-pointer">
+        <tr key={index} className="cursor-pointer">
           <td className="text-center">{index + 1}</td>
           <tr className="">
             <td>

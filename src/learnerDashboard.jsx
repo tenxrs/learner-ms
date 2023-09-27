@@ -7,16 +7,16 @@ import MeetingScheduler from './MeetingScheduler';
 
 export default function Dashboard() {
   const location = useLocation();
-  const data = location.state;
+  console.log(location);
 
-  const sombre = data.map(test => {
+  const sombre = location.state.map(test => {
     return test.tests[0].markObtained;
   });
   const totalTestmarks = sombre.reduce((acc, val) => acc + val, 0);
-  const assignmentsTotal = data.map(assignment => {
+  const assignmentsTotal = location.state.map(assignment => {
     return assignment.assignments[0].markObtained;
   });
-  const exams = data.map(exam => exam.examinations[0].markObtained);
+  const exams = location.state.map(exam => exam.examinations[0].markObtained);
   const examtotal = exams.reduce((acc, val) => acc + val, 0);
   const ttalAssesmnt = assignmentsTotal.reduce((acc, val) => acc + val, 0);
 
@@ -49,7 +49,7 @@ export default function Dashboard() {
           <div>
             <div className="flex m-0">
               <LearnerStatCard
-                value={data[0].tests[0].markObtained}
+                value={location.state[0].tests[0].markObtained}
                 statType={'Average Grade'}
                 customStyles={firstCard}
               />
@@ -68,7 +68,7 @@ export default function Dashboard() {
           <div>
             <Tracker />
             <StudentLeaderboard
-              Subjects={data.map(sub => (
+              Subjects={location.state.map(sub => (
                 <optgroup>
                   <option>{sub.name}</option>
                 </optgroup>
