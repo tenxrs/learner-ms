@@ -146,6 +146,7 @@ const LearnerStatCard = ({ value, statType, customStyles }) => {
             inpu
           </svg>
           <p className="text-5xl font-extrabold font-mono">{`${value}`}</p>
+          <div>something</div>
         </div>
       )}
     </div>
